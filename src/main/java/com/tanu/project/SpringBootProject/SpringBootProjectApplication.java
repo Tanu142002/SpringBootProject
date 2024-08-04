@@ -9,7 +9,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 public class SpringBootProjectApplication {
 
-	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootProjectApplication.class, args);
 		System.out.println("Hii");

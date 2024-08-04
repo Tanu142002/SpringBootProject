@@ -16,46 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tanu.model.Employee;
 import com.tanu.service.EmployeeService;
 
-//@RestController
-//@RequestMapping("/api")
-//public class EmployeeController {
-//
-//	@Autowired
-//	private EmployeeService employeeService;
-//
-//	@PostMapping("/employee")
-//	public Employee save(@RequestBody Employee employeeObj) {
-//		employeeService.save(employeeObj);
-//		return employeeObj;
-//	}
-//
-//	@GetMapping("/employee")
-//	public List<Employee> get() {
-//		return employeeService.get();
-//	}
-//
-//	@GetMapping("/employee/{id}")
-//	public Employee get(@PathVariable int id) {
-//		Employee employeeObj = employeeService.get(id);
-//		if (employeeObj == null) {
-//			throw new RuntimeException("Employee not found for the Id:" + id);
-//		}
-//		return employeeObj;
-//	}
-//
-//	@PutMapping("/employee")
-//	public Employee update(@RequestBody Employee employeeObj) {
-//		employeeService.save(employeeObj);
-//		return employeeObj;
-//	}
-//
-//	@DeleteMapping("/employee/{id}")
-//	public String delete(@PathVariable int id) {
-//		employeeService.delete(id);
-//		return "Employee has been deleted with id:" + id;
-//	}
-//}
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -64,49 +24,49 @@ import org.springframework.data.domain.Sort;
 @RequestMapping("/api")
 public class EmployeeController {
 
-    @Autowired
-    private EmployeeService employeeService;
+	@Autowired
+	private EmployeeService employeeService;
 
-    @PostMapping("/employee")
-    public Employee save(@RequestBody Employee employeeObj) {
-        employeeService.save(employeeObj);
-        return employeeObj;
-    }
+	@PostMapping("/employee")
+	public Employee save(@RequestBody Employee employeeObj) {
+		employeeService.save(employeeObj);
+		return employeeObj;
+	}
 
-    @GetMapping("/employee")
-    public List<Employee> get() {
-        return employeeService.get();
-    }
+	@GetMapping("/employee")
+	public List<Employee> get() {
+		return employeeService.get();
+	}
 
-    @GetMapping("/employee/{id}")
-    public Employee get(@PathVariable int id) {
-        Employee employeeObj = employeeService.get(id);
-        if (employeeObj == null) {
-            throw new RuntimeException("Employee not found for the Id:" + id);
-        }
-        return employeeObj;
-    }
+	@GetMapping("/employee/{id}")
+	public Employee get(@PathVariable int id) {
+		Employee employeeObj = employeeService.get(id);
+		if (employeeObj == null) {
+			throw new RuntimeException("Employee not found for the Id:" + id);
+		}
+		return employeeObj;
+	}
 
-    @PutMapping("/employee")
-    public Employee update(@RequestBody Employee employeeObj) {
-        employeeService.save(employeeObj);
-        return employeeObj;
-    }
+	@PutMapping("/employee")
+	public Employee update(@RequestBody Employee employeeObj) {
+		employeeService.save(employeeObj);
+		return employeeObj;
+	}
 
-    @DeleteMapping("/employee/{id}")
-    public String delete(@PathVariable int id) {
-        employeeService.delete(id);
-        return "Employee has been deleted with id:" + id;
-    }
+	@DeleteMapping("/employee/{id}")
+	public String delete(@PathVariable int id) {
+		employeeService.delete(id);
+		return "Employee has been deleted with id:" + id;
+	}
 
-    @GetMapping("/employee/page")
-    public Page<Employee> findAll(@RequestParam int page, @RequestParam int size) {
-        return employeeService.findAll(PageRequest.of(page, size));
-    }
+	@GetMapping("/employee/page")
+	public Page<Employee> findAll(@RequestParam int page, @RequestParam int size) {
+		return employeeService.findAll(PageRequest.of(page, size));
+	}
 
-    @GetMapping("/employee/sort")
-    public List<Employee> findAll(@RequestParam String sortBy, @RequestParam String direction) {
-        Sort sort = Sort.by(Sort.Direction.fromString(direction), sortBy);
-        return employeeService.findAll(sort);
-    }
+	@GetMapping("/employee/sort")
+	public List<Employee> findAll(@RequestParam String sortBy, @RequestParam String direction) {
+		Sort sort = Sort.by(Sort.Direction.fromString(direction), sortBy);
+		return employeeService.findAll(sort);
+	}
 }

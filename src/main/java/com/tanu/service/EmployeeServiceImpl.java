@@ -15,36 +15,36 @@ import com.tanu.model.Employee;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    @Autowired
-    private EmployeeDAO employeeDAO;
+	@Autowired
+	private EmployeeDAO employeeDAO;
 
-    @Override
-    public List<Employee> get() {
-        return employeeDAO.get();
-    }
+	@Override
+	public List<Employee> get() {
+		return employeeDAO.get();
+	}
 
-    @Override
-    public Employee get(int id) {
-        return employeeDAO.get(id);
-    }
+	@Override
+	public Employee get(int id) {
+		return employeeDAO.get(id);
+	}
 
-    @Override
-    public void save(Employee employee) {
-        employeeDAO.save(employee);
-    }
+	@Override
+	public void save(Employee employee) {
+		employeeDAO.save(employee);
+	}
 
-    @Override
-    public void delete(int id) {
-        employeeDAO.delete(id);
-    }
+	@Override
+	public void delete(int id) {
+		employeeDAO.delete(id);
+	}
 
-    @Override
-    public Page<Employee> findAll(Pageable pageable) {
-        return employeeDAO.findAll(pageable);
-    }
+	@Override
+	public Page<Employee> findAll(Pageable pageable) {
+		return employeeDAO.findAll(pageable);
+	}
 
-    @Override
-    public List<Employee> findAll(Sort sort) {
-        return employeeDAO.findAll(sort);
-    }
+	@Override
+	public List<Employee> findAll(Sort sort) {
+		return employeeDAO.findAll(sort);
+	}
 }
